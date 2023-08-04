@@ -5,6 +5,30 @@
  * Versão 1.0.0
  ****************************************************************/
 
+/***********************************************************************************
+ * Formas de criar variáveis e constantes
+ *      var - permite criar uma variável de escopo global, ou seja, irá existir em todo o projeto
+ *      let - permite criar uma variável de escopo local (bloco), ou seja, irá existir apenas dentro daquele bloco
+ *      const - permite criar uma constant que pode ser de escopo local ou global, sempre utilizamos em situações onde não haverá mudança de conteúdo
+ * 
+ * 
+ * Operadores de comparação
+ *      == comparação de conteúdo
+ *      < menor
+ *      > maior
+ *      <= menor ou igual
+ *      >= maior ou igual
+ *      != diferença
+ *      === comparação de conteúdos iguais e tipo de dados iguais. Ex: 1 === 1
+ *      !== comparação de conteúdos diferentes e tipos de dados iguais
+ *      ==! comparação de conteúdos iguais e tipos de dados diferentes
+ * 
+ * Operadores Lógicos
+ *      E	AND	 &&
+ *      OU	OR	 ||
+ *      Negação 	NOT     !
+ **********************************************************************************/
+
 // import da biblioteca de READLINE
 var readline = require('readline')
 
@@ -20,7 +44,7 @@ var entradaDeDados = readline.createInterface({
 // entrada de dados do nome
 entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
     // recebe o nome digitado
-    var nome = nomeUsuario
+    let nome = nomeUsuario
 
     // entrada de dados da primeira nota
     entradaDeDados.question('Digite sua primeira nota: ', function (nota1Usuario) {
@@ -38,19 +62,22 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
                 entradaDeDados.question('Digite sua quarta nota: ', function (nota4Usuario) {
                     var nota4 = Number(nota4Usuario, 10)
 
-                    // exibe uma mensagem no terminal com os dados digitados
-                    console.log('Bem-vindo ao aplicativo, ' + nome)
-                    console.log('Primeira nota: ' + nota1)
-                    console.log('Segunda nota: ' + nota2)
-                    console.log('Terceira nota: ' + nota3)
-                    console.log('Quarta nota: ' + nota4)
+                    if (nota1 == '' || nota2 == '' || nota3 == '' || nota4 == '') {
+                        console.log('ERRO')
 
-                    var media = (nota1 + nota2 + nota3 + nota4) / 4
-                    console.log(nome + ', sua média é: ' + media)
+                        // encerra o processamento de dados
+                        entradaDeDados.close()
+                    } else {
+                        // exibe uma mensagem no terminal com os dados digitados
+                        console.log('Bem-vindo ao aplicativo, ' + nome)
+                        console.log('Primeira nota: ' + nota1)
+                        console.log('Segunda nota: ' + nota2)
+                        console.log('Terceira nota: ' + nota3)
+                        console.log('Quarta nota: ' + nota4)
 
-                    // encerra o processamento de dados
-                    entradaDeDados.close()
-
+                        var media = (nota1 + nota2 + nota3 + nota4) / 4
+                        console.log(nome + ', sua média é: ' + media)
+                    }
                 })
             })
         })
