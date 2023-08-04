@@ -5,13 +5,19 @@
  * Versão 1.0.0
  ****************************************************************/
 
+// import da biblioteca de READLINE
 var readline = require('readline')
 
+// cria o elemento de entrada de dados para digitação com o usuário
 var entradaDeDados = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
 
+// função de callback que permite apresentar uma mensagem no terminal, e captar a digitação do usuário
+// Obs: o dado digitado chegará para dentro da função através do seu argumento (nomeUsuario)
+
+// entrada de dados do nome
 entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
     // recebe o nome digitado
     var nome = nomeUsuario
