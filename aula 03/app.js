@@ -91,7 +91,7 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
 
                         // calcular
                         var media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
-                        console.log(nome + ', sua média é: ' + media)
+                        console.log(nome + ', sua média é: ' + media.toFixed(1))
                     }
 
                     // encerra o processamento de dados
