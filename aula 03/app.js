@@ -27,10 +27,16 @@
  *      E	AND	 &&
  *      OU	OR	 ||
  *      Negação 	NOT     !
+ * 
+ * Conversão de String para número
+ *      parseInt() = converte uma String para números inteiros
+ *      parseFloat() = converte uma String para números reais
+ *      Number() = converte uma String para número inteiro ou real conforme a necessidade
  **********************************************************************************/
 
 // import da biblioteca de READLINE
 var readline = require('readline')
+const { isNumber } = require('util')
 
 // cria o elemento de entrada de dados para digitação com o usuário
 var entradaDeDados = readline.createInterface({
@@ -65,9 +71,9 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
                     // validação para entrada de dados vazia
                     if (nota1 == '' || nota2 == '' || nota3 == '' || nota4 == '') {
                         console.log('ERRO: É obrigatório inserir todas as notas.')
+                    } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
 
-                        // encerra o processamento de dados
-                        entradaDeDados.close()
+                        console.log('ERRO: É obrigatório a entrada de dados somente com números.')
                     } else {
                         // exibe uma mensagem no terminal com os dados digitados
                         console.log('Bem-vindo ao aplicativo, ' + nome)
@@ -76,9 +82,14 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
                         console.log('Terceira nota: ' + nota3)
                         console.log('Quarta nota: ' + nota4)
 
+                        // calcular
                         var media = (nota1 + nota2 + nota3 + nota4) / 4
                         console.log(nome + ', sua média é: ' + media)
                     }
+
+                     // encerra o processamento de dados
+                     entradaDeDados.close()
+
                 })
             })
         })
