@@ -54,26 +54,33 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
 
     // entrada de dados da primeira nota
     entradaDeDados.question('Digite sua primeira nota: ', function (nota1Usuario) {
-        var nota1 = Number(nota1Usuario, 10)
+        var nota1 = nota1Usuario
 
         // entrada de dados segunda nota
         entradaDeDados.question('Digite sua segunda nota: ', function (nota2Usuario) {
-            var nota2 = Number(nota2Usuario, 10)
+            var nota2 = nota2Usuario
 
             // entrada de dados da terceira nota
             entradaDeDados.question('Digite sua terceira nota: ', function (nota3Usuario) {
-                var nota3 = Number(nota3Usuario, 10)
+                var nota3 = nota3Usuario
 
                 // entrada de dados da quarta nota
                 entradaDeDados.question('Digite sua quarta nota: ', function (nota4Usuario) {
-                    var nota4 = Number(nota4Usuario, 10)
+                    var nota4 = nota4Usuario
 
                     // validação para entrada de dados vazia
                     if (nota1 == '' || nota2 == '' || nota3 == '' || nota4 == '') {
                         console.log('ERRO: É obrigatório inserir todas as notas.')
-                    } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
 
+                        // validação para entrada de dados não numéricos
+                        // isNaN() - verifica se a variável não é um numero
+                    } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
                         console.log('ERRO: É obrigatório a entrada de dados somente com números.')
+
+                        // validação de entrada de números apenas entre 0 e 10.
+                    } else if (nota1 > 10 || nota1 < 0 || nota2 > 10 || nota2 < 0 || nota3 > 10 || nota3 < 0 || nota4 > 10 || nota4 < 0) {
+                        console.log('ERRO: É obrigatório inserir notas entre 0 e 10.')
+
                     } else {
                         // exibe uma mensagem no terminal com os dados digitados
                         console.log('Bem-vindo ao aplicativo, ' + nome)
@@ -83,12 +90,12 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
                         console.log('Quarta nota: ' + nota4)
 
                         // calcular
-                        var media = (nota1 + nota2 + nota3 + nota4) / 4
+                        var media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
                         console.log(nome + ', sua média é: ' + media)
                     }
 
-                     // encerra o processamento de dados
-                     entradaDeDados.close()
+                    // encerra o processamento de dados
+                    entradaDeDados.close()
 
                 })
             })
