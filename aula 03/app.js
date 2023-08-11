@@ -62,8 +62,9 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
                 entradaDeDados.question('Digite sua quarta nota: ', function (nota4Usuario) {
                     var nota4 = Number(nota4Usuario, 10)
 
+                    // validação para entrada de dados vazia
                     if (nota1 == '' || nota2 == '' || nota3 == '' || nota4 == '') {
-                        console.log('ERRO')
+                        console.log('ERRO: É obrigatório inserir todas as notas.')
 
                         // encerra o processamento de dados
                         entradaDeDados.close()
