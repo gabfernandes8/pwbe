@@ -36,7 +36,6 @@
 
 // import da biblioteca de READLINE
 var readline = require('readline')
-const { isNumber } = require('util')
 
 // cria o elemento de entrada de dados para digitação com o usuário
 var entradaDeDados = readline.createInterface({
@@ -54,19 +53,19 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
 
     // entrada de dados da primeira nota
     entradaDeDados.question('Digite sua primeira nota: ', function (nota1Usuario) {
-        var nota1 = nota1Usuario
+        var nota1 = nota1Usuario.replace(",",".")
 
         // entrada de dados segunda nota
         entradaDeDados.question('Digite sua segunda nota: ', function (nota2Usuario) {
-            var nota2 = nota2Usuario
+            var nota2 = nota2Usuario.replace(",",".")
 
             // entrada de dados da terceira nota
             entradaDeDados.question('Digite sua terceira nota: ', function (nota3Usuario) {
-                var nota3 = nota3Usuario
+                var nota3 = nota3Usuario.replace(",",".")
 
                 // entrada de dados da quarta nota
                 entradaDeDados.question('Digite sua quarta nota: ', function (nota4Usuario) {
-                    var nota4 = nota4Usuario
+                    var nota4 = nota4Usuario.replace(",",".")
 
                     // validação para entrada de dados vazia
                     if (nota1 == '' || nota2 == '' || nota3 == '' || nota4 == '') {
@@ -83,7 +82,7 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
 
                     } else {
                         // exibe uma mensagem no terminal com os dados digitados
-                        console.log('Bem-vindo ao aplicativo, ' + nome)
+                        console.log('Bem-vindo ao aplicativo, ' + nome.toUpperCase())
                         console.log('Primeira nota: ' + nota1)
                         console.log('Segunda nota: ' + nota2)
                         console.log('Terceira nota: ' + nota3)
@@ -91,7 +90,9 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario) {
 
                         // calcular
                         var media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
-                        console.log(nome + ', sua média é: ' + media.toFixed(1))
+
+                        // toFixed() - permite ajustar a quantidade de casas decimais
+                        console.log(nome.toUpperCase() + ', sua média é: ' + media.toFixed(1).replace(".",","))
                     }
 
                     // encerra o processamento de dados
