@@ -22,6 +22,12 @@ entradaDeDados.question('Digite o primeiro número: ', function (numero1) {
             let operacao = opcao.toUpperCase()
             let resultado
 
+            if(valor1 == '' || valor2 == ''){
+                console.log('ERRO: É necessário a entrada de dados nos valores.')
+            } else if (isNaN(valor1) || isNaN(valor2)){
+                console.log('ERRO: É obrigatório a entrada somente de números.')
+            }
+
             valor1 = Number(valor1)
             valor2 = Number(valor2)
 
@@ -35,10 +41,16 @@ entradaDeDados.question('Digite o primeiro número: ', function (numero1) {
                 resultado = valor1 * valor2
 
             } else if (operacao == 'DIVIDIR') {
-                resultado = valor1 / valor2
+                if(valor2 == 0){
+                    console.log('ERRO: Não é possível realizar uma divisão por 0')
+                } else {
+                    resultado = valor1 / valor2 
+                }
             }
 
-            console.log(resultado)
+            if(resultado != undefined){
+                console.log(resultado)
+            }
 
         })
     })
