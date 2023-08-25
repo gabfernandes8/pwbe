@@ -11,6 +11,9 @@
 // código 4: em 4x, preço acrescido de 8%
 // qualquer outro: opção inválida
 
+// import da biblioteca de calculosMatematicos
+var calculoValor = require('./modulo/calculoValor.js')
+
 var readline = require('readline')
 
 var entradaDeDados = readline.createInterface({
@@ -33,6 +36,12 @@ entradaDeDados.question('Insira o valor do produto: ', function (valorProduto) {
         console.log('ERRO: é obrigatório informar somente números.')
         } else if (codigo > 4 || codigo < 1){
             console.log('ERRO: é obrigatório inserir um código de 1 a 4.')
+        }
+
+        msg = calculoValor.calcular(valorProduto, codigoInserido)
+
+        if(msg){
+            console.log(msg)
         }
     })
 })
