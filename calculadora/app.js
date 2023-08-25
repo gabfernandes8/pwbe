@@ -20,6 +20,9 @@ entradaDeDados.question('Primeiro número: ', function (numero1) {
 
         entradaDeDados.question('Qual operação deseja efetuar? (+, -, /, *) : \n', function (sinal) {
             let operacao
+            
+            n1 = Number(n1)
+            n2 = Number(n2)
 
             // validação para entrada de dados vazia
             if (n1 == '' || n2 == '') {
@@ -34,33 +37,31 @@ entradaDeDados.question('Primeiro número: ', function (numero1) {
                 switch (sinal) {
 
                     case "+":
-                        operacao = Number(n1) + Number(n2)
-                        console.log(n1 + " + " + n2)
-                        console.log(operacao)
+                        operacao = n1 + n2
+                        console.log(n1 + " + " + n2 + ' = ' + operacao)
                         break
     
                     case "-":
-                        operacao = Number(n1) - Number(n2)
-                        console.log(n1 + " - " + n2)
-                        console.log(operacao)
+                        operacao = n1 - n2
+                        console.log(n1 + " - " + n2 + ' = ' + operacao)
                         break
     
                     case "/":
-                        operacao = Number(n1) / Number(n2)
-                        console.log(n1 + " / " + n2)
-                        console.log(operacao)
+                        operacao = n1 / n2
+                        console.log(n1 + " / " + n2 + ' = ' + operacao)
                         break
     
                     case "*":
-                        operacao = Number(n1) * Number(n2)
-                        console.log(n1 + " * " + n2)
-                        console.log(operacao)
+                        operacao = n1 * n2
+                        console.log(n1 + " * " + n2 + ' = ' + operacao)
                         break
 
                     default:
                         console.log('É necessário definir uma operação válida.')
                 }
             }
+
+            entradaDeDados.close()
 
         })
     })
