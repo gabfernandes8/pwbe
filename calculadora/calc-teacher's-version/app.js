@@ -22,33 +22,62 @@ entradaDeDados.question('Digite o primeiro número: ', function (numero1) {
             let operacao = opcao.toUpperCase()
             let resultado
 
-            if(valor1 == '' || valor2 == ''){
+            if (valor1 == '' || valor2 == '') {
                 console.log('ERRO: É necessário a entrada de dados nos valores.')
-            } else if (isNaN(valor1) || isNaN(valor2)){
+            } else if (isNaN(valor1) || isNaN(valor2)) {
                 console.log('ERRO: É obrigatório a entrada somente de números.')
             }
 
             valor1 = Number(valor1)
             valor2 = Number(valor2)
 
-            if (operacao == 'SOMAR') {
-                resultado = valor1 + valor2
+            // if (operacao == 'SOMAR') {
+            //     resultado = valor1 + valor2
 
-            } else if (operacao == 'SUBTRAIR') {
-                resultado = valor1 - valor2
+            // } else if (operacao == 'SUBTRAIR') {
+            //     resultado = valor1 - valor2
 
-            } else if (operacao == 'MULTIPLICAR') {
-                resultado = valor1 * valor2
+            // } else if (operacao == 'MULTIPLICAR') {
+            //     resultado = valor1 * valor2
 
-            } else if (operacao == 'DIVIDIR') {
-                if(valor2 == 0){
-                    console.log('ERRO: Não é possível realizar uma divisão por 0')
-                } else {
-                    resultado = valor1 / valor2 
-                }
+            // } else if (operacao == 'DIVIDIR') {
+            //     if(valor2 == 0){
+            //         console.log('ERRO: Não é possível realizar uma divisão por 0')
+            //     } else {
+            //         resultado = valor1 / valor2 
+            //     }
+            // } else{
+            //     console.log('ERRO: É obrigatório escolher apenas as operações listadas')
+            // }
+
+            // VERSÃO 2.0 - utilizando switch case{
+            switch (operacao) {
+                case "SOMAR":
+                    resultado = valor1 + valor2
+                    break
+
+                case "SUBTRAIR":
+                    resultado = valor1 - valor2
+                    break
+
+                case "MULTIPLICAR":
+                    resultado = valor1 * valor2
+                    break
+
+                case "DIVIDIR":
+                    if (valor2 == 0) {
+                        console.log('ERRO: Não é possível realizar uma divisão por 0')
+                    } else {
+                        resultado = valor1 / valor2
+                    }
+                    break
+
+                default:
+                    console.log('ERRO: É obrigatório escolher apenas as operações listadas')
+                    break
             }
 
-            if(resultado != undefined){
+            if (resultado != undefined) {
                 console.log(resultado)
             }
 
