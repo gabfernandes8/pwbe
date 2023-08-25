@@ -23,5 +23,16 @@ entradaDeDados.question('Insira o valor do produto: ', function (valorProduto) {
 
     entradaDeDados.question('Informe o código: ', function (codigoInserido){
         let codigo = codigoInserido
+
+        // validação para entrada de dados vazia
+        if (preco == '' || codigo == ''){
+            console.log('ERRO: é necessário informar um valor ou um código.')
+        } else if (isNaN(codigo) || isNaN(preco)) {
+        // isNaN() - verifica se a variável não é um numero
+
+        console.log('ERRO: é obrigatório informar somente números.')
+        } else if (codigo > 4 || codigo < 1){
+            console.log('ERRO: é obrigatório inserir um código de 1 a 4.')
+        }
     })
 })
