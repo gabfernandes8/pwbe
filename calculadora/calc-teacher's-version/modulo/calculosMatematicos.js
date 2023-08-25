@@ -43,6 +43,10 @@ function calculadora(numero1, numero2, tipoCalculo) {
     } else {
         return false
     }
-
-    return resultado
 }
+
+// permite deixar uma função public para outros projetos
+module.exports={
+    calculadora
+}
+

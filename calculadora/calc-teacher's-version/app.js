@@ -5,6 +5,9 @@
  * Versão 1.0.0
  ****************************************************************/
 
+// import da biblioteca de calculosMatematicos
+var calculosMatematicos = require('./modulo/calculosMatematicos.js')
+
 var readline = require('readline')
 
 var entradaDeDados = readline.createInterface({
@@ -50,7 +53,7 @@ entradaDeDados.question('Digite o primeiro número: ', function (numero1) {
             //     console.log('ERRO: É obrigatório escolher apenas as operações listadas')
             // }
 
-            resultado = calculadora(valor1, valor2, operacao)
+            resultado = calculosMatematicos.calculadora(valor1, valor2, operacao)
 
             if (resultado) {
                 console.log(resultado)
