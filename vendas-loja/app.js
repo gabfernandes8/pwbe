@@ -36,12 +36,13 @@ entradaDeDados.question('Insira o valor do produto: ', function (valorProduto) {
         console.log('ERRO: é obrigatório informar somente números.')
         } else if (codigo > 4 || codigo < 1){
             console.log('ERRO: é obrigatório inserir um código de 1 a 4.')
-        }
+        } else {
+            preco = Number(preco)
+            codigo = Number(codigo)
 
-        msg = calculoValor.calcular(valorProduto, codigoInserido)
-
-        if(msg){
+            msg = calculoValor.calcular(preco, codigo)
             console.log(msg)
         }
+        
     })
 })
