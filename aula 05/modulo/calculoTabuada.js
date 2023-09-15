@@ -31,17 +31,27 @@ const calcularTabuada = function(valorTabuada, contadorInicial, contadorFinal){
         contFinal = Number(contFinal)
         tabuada = Number(tabuada)
 
-        // exemplo usando while
-        while (contInicial <= contFinal){
-            resultado = tabuada * contInicial
-            console.log(tabuada + ' x ' + contInicial + ' = ' + resultado)
+    //     // exemplo usando while
+    //     while (contInicial <= contFinal){
+    //         resultado = tabuada * contInicial
+    //         console.log(tabuada + ' x ' + contInicial + ' = ' + resultado)
 
-            contInicial++
-            status = true
-        }
+    //         contInicial++
+    //         status = true
+    //     }
+
+    // exemplo usando for
+    for (; contInicial<=contFinal; contInicial++){
+        resultado = tabuada * contInicial
+        console.log(tabuada + " x " + contInicial + " = " + resultado)
+        status = true
+    }
     }
 
     return status
+
 }
 
-console.log(calcularTabuada(8,1,10))
+module.exports={
+    calcularTabuada
+}
