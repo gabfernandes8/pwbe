@@ -5,8 +5,6 @@
  * VERSÃO: 1.0
  *************************************************/
 
-const { Console } = require("console")
-
 const calcularMedias = (nota1, nota2, nota3, nota4) => {
     let n1 = nota1, n2 = nota2, n3 = nota3, n4 = nota4
     let media
@@ -91,12 +89,12 @@ const verificarExame = (notaExame) => {
 }
 
 const verificarPronomeProf = (sexoProf) => {
-    let proProf = String(sexoProf).toLocaleLowerCase()
-    let sexo
+    let sexo = String(sexoProf).toLocaleLowerCase()
+    let proProf
 
-    if (sexo == 'FEMININO'){
+    if (sexo == 'feminino'){
         proProf = 'Professora'
-    } else if (sexo == 'MASCULINO'){
+    } else if (sexo == 'masculino'){
         proProf = 'Professor'
     }
 
@@ -112,12 +110,12 @@ const verificarPronomeProf = (sexoProf) => {
 }
 
 const verificarPronomeAluno = (sexoAluno) =>{
-    let proAluno = String(sexoAluno).toLocaleLowerCase()
-    let sexo
+    let sexo = String(sexoAluno).toLocaleLowerCase()
+    let proAluno
 
-    if (sexo == 'FEMININO'){
+    if (sexo == 'feminino'){
         proAluno = 'Aluna'
-    } else if (sexo == 'MASCULINO'){
+    } else if (sexo == 'masculino'){
         proAluno = 'Aluno'
     }
 
@@ -132,30 +130,26 @@ const verificarPronomeAluno = (sexoAluno) =>{
     }
 }
 
-const relatorio = (nomeAluno, nomeProf, sexoAluno, sexoProf, nomeDisc, nomeCurso, situacaoMedia, situacaoExame) => {
+const relatorio = (nomeAluno, nomeProf, sexoAluno, sexoProf, nomeDisc, nomeCurso, situacaoMedia) => {
     let aluno = nomeAluno, professor = nomeProf, proAluno = sexoAluno, proProf = sexoProf
     let curso = nomeCurso, disciplina = nomeDisc
-    let sit = situacaoMedia, sitExame = situacaoExame
+    let sit = situacaoMedia
 
-// Relatório do aluno: 
-//   Média Final: xxxxxx 
-//   Média final do Exame: xxxx
-
+    console.log('')
     console.log('RELATÓRIO DO ALUNO')
     console.log('')
 
-    console.log(situacaoMedia)
-    if(proAluno = 'Aluna'){
+    if(proAluno == 'Aluna'){
         console.log('A aluna, ' + aluno + ', foi ' + sit + ' na disciplina ' + disciplina + '.')
-    } else if(proAluno = 'Aluno'){
+    } else if(proAluno == 'Aluno'){
         console.log('O aluno, ' + aluno + ', foi ' + sit + ' na disciplina ' + disciplina + '.')
     }
 
     console.log('Curso: ' + curso)
     
-    if (proProf = 'Professora'){
+    if (proProf == 'Professora'){
         console.log('Professora: ' + professor)
-    } else if (proProf = 'Professor'){
+    } else if (proProf == 'Professor'){
         console.log('Professor: ' + professor)
     }
 
@@ -165,11 +159,11 @@ const relatorio = (nomeAluno, nomeProf, sexoAluno, sexoProf, nomeDisc, nomeCurso
 const relatorioExame = (sexoAluno, nota1, nota2, nota3, nota4, notaExame, situacaoExame, media, novaMedia) => {
     let proAluno = sexoAluno
     let n1 = nota1, n2 = nota2, n3 = nota3, n4 = nota4, nE = notaExame
-    let mediaExame = novaMedia, sitExame = situacaoExame
+    let mediaExame = novaMedia, sitExame = situacaoExame, mediaFinal = media
 
-    if(proAluno = 'Aluna'){
+    if(proAluno == 'Aluna'){
         console.log('Notas da aluna: ' + n1 + ', ' + n2 + ', ' + n3 + ', ' + n4 + ', ' + nE)
-    } else if(proAluno = 'Aluno'){
+    } else if(proAluno == 'Aluno'){
         console.log('Notas do aluno: ' + n1 + ', ' + n2 + ', ' + n3 + ', ' + n4 + ', ' + nE)
     }
 
@@ -185,10 +179,10 @@ const relatorioAvaliacao = (sexoAluno, nota1, nota2, nota3, nota4, media) => {
     let n1 = nota1, n2 = nota2, n3 = nota3, n4 = nota4
     let mediaFinal = media
 
-    if(proAluno = 'Aluna'){
-        console.log('Notas da aluna: ' + n1 + ', ' + n2 + ', ' + n3 + ', ' + n4 + ', ')
-    } else if(proAluno = 'Aluno'){
-        console.log('Notas do aluno: ' + n1 + ', ' + n2 + ', ' + n3 + ', ' + n4 + ', ')
+    if(proAluno == 'Aluna'){
+        console.log('Notas da aluna: ' + n1 + ', ' + n2 + ', ' + n3 + ', ' + n4)
+    } else if(proAluno == 'Aluno'){
+        console.log('Notas do aluno: ' + n1 + ', ' + n2 + ', ' + n3 + ', ' + n4)
     }
 
     console.log('Média final: ' + mediaFinal)

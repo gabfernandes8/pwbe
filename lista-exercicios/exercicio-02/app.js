@@ -26,8 +26,7 @@ entradaDeDados.question('Insira o nome do aluno: ', function (nomeAluno) {
                 let nProf = nomeProf
 
                 entradaDeDados.question('Insira o sexo do professor [Feminino - Masculino]: ', function (sexoProf) {
-                    let pProf = sexoProf
-                    pProf = calcularMedias.verificarPronomeProf(sexoProf)
+                    let pProf = calcularMedias.verificarPronomeProf(sexoProf)
 
                     entradaDeDados.question('Qual a disciplina? ', function (nomeDisc) {
                         let disciplina = nomeDisc
@@ -50,25 +49,30 @@ entradaDeDados.question('Insira o nome do aluno: ', function (nomeAluno) {
                                             let exame
 
                                             media = calcularMedias.calcularMedias(nota1, nota2, nota3, nota4)
+                                            
+                                            if (media){
+                                                let situacao
+                                                situacao = calcularMedias.verificarSituacao(media)
+    
+                                                if (situacao == 'EM EXAME'){
 
-                                            let situacao
-                                            situacao = calcularMedias.verificarSituacao(media)
-
-                                            if (situacao == 'EM EXAME'){
-                                                entradaDeDados.question('Digite a nota de exame: ', function(notaExame){
-                                                    exame = calcularMedias.exame(media, notaExame)
-
-                                                    if(exame){
-                                                        situacaoExame = calcularMedias.verificarExame(exame)
-
-                                                        situacaoExame = calcularMedias.relatorio(nAluno, nProf, sexoAluno, sexoProf, disciplina, curso, situacao)
-                                                        situacaoExame = calcularMedias.relatorioExame(pAluno, n1, n2, n3, n4, notaExame, situacaoExame, media, mediaExame)
-                                                    }
-                                                })
-                                            } else {
-                                                situacao = calcularMedias.relatorio(nAluno, nProf, sexoAluno, sexoProf, disciplina, curso, situacao)
-                                                situacao = calcularMedias.relatorioAvaliacao(sexoAluno, n1, n2, n3, n4, media)
+                                                    entradaDeDados.question('Digite a nota de exame [0 - 100]: ', function(notaExame){
+                                                        let nE = notaExame
+                                                        exame = calcularMedias.exame(media, nE)
+    
+                                                        if(exame){
+                                                            situacaoExame = calcularMedias.verificarExame(exame)
+    
+                                                            calcularMedias.relatorio(nAluno, nProf, pAluno, pProf, disciplina, curso, situacao)
+                                                            calcularMedias.relatorioExame(pAluno, n1, n2, n3, n4, nE, situacaoExame, media, exame)
+                                                        }
+                                                    })
+                                                } else {
+                                                    calcularMedias.relatorio(nAluno, nProf, pAluno, pProf, disciplina, curso, situacao)
+                                                    calcularMedias.relatorioAvaliacao(pAluno, n1, n2, n3, n4, media)
+                                                }
                                             }
+
                                         })
                                     })
                                 })
