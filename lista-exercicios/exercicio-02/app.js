@@ -54,10 +54,7 @@ entradaDeDados.question('Insira o nome do aluno: ', function (nomeAluno) {
                                             let situacao
                                             situacao = calcularMedias.verificarSituacao(media)
 
-                                            situacao = calcularMedias.relatorio(nAluno, nProf, sexoAluno, sexoProf, disciplina, curso, situacao)
-                                            situacao = calcularMedias.relatorioAvaliacao(sexoAluno, n1, n2, n3, n4, media)
-
-                                            if (situacao == 'EM EXAME.'){
+                                            if (situacao == 'EM EXAME'){
                                                 entradaDeDados.question('Digite a nota de exame: ', function(notaExame){
                                                     exame = calcularMedias.exame(media, notaExame)
 
@@ -68,6 +65,9 @@ entradaDeDados.question('Insira o nome do aluno: ', function (nomeAluno) {
                                                         situacaoExame = calcularMedias.relatorioExame(pAluno, n1, n2, n3, n4, notaExame, situacaoExame, media, mediaExame)
                                                     }
                                                 })
+                                            } else {
+                                                situacao = calcularMedias.relatorio(nAluno, nProf, sexoAluno, sexoProf, disciplina, curso, situacao)
+                                                situacao = calcularMedias.relatorioAvaliacao(sexoAluno, n1, n2, n3, n4, media)
                                             }
                                         })
                                     })

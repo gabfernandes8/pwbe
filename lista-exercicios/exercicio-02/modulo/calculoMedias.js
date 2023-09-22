@@ -11,8 +11,7 @@ const calcularMedias = (nota1, nota2, nota3, nota4) => {
     let n1 = nota1, n2 = nota2, n3 = nota3, n4 = nota4
     let media
 
-    media = n1, n2, n3, n4 / 4
-
+    
     if(n1 == '' || n2 == '' || n3 == '' || n4 == ''){
         console.log('ERRO: é obrigatório inserir todos as notas.')
     } else if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4)){
@@ -20,12 +19,13 @@ const calcularMedias = (nota1, nota2, nota3, nota4) => {
     } else if(n1 > 100 || n1 < 0 || n2 > 100 || n2 < 0 || n3 > 100 || n3 < 0 || n4 > 100 || n4 < 0){
         console.log('ERRO: o valor digitado deve ser obrigatoriamente de 0 até 100.')
     }
-
-    if(n1 != undefined || n2 != undefined || n3 != undefined || n4 != undefined){
-        n1, n2, n3, n4
-    } else {
-        return false
-    }
+    
+    n1 = Number(nota1)
+    n2 = Number(nota2)
+    n3 = Number(nota3)
+    n4 = Number(nota4)
+    
+    media = (n1 + n2 + n3 + n4) / 4
 
     if (media != undefined){
         return media
@@ -38,11 +38,11 @@ const verificarSituacao = (media) => {
     let situacao
 
     if (media >= 70){
-        situacao = 'APROVADO!'
+        situacao = 'APROVADO'
     } else if (media >= 50){
-        situacao = 'EM EXAME.'
+        situacao = 'EM EXAME'
     } else {
-        situacao = 'REPROVADO!'
+        situacao = 'REPROVADO'
     }
 
     if (media = '') {
@@ -78,9 +78,9 @@ const verificarExame = (notaExame) => {
     let sitExame
 
     if (notaExame >= 60){
-        sitExame = 'APROVADO NO EXAME!'
+        sitExame = 'APROVADO NO EXAME'
     } else {
-        sitExame = 'REPROVADO NO EXAME!'
+        sitExame = 'REPROVADO NO EXAME'
     }
 
     if (sitExame != undefined){
@@ -161,8 +161,6 @@ const relatorio = (nomeAluno, nomeProf, sexoAluno, sexoProf, nomeDisc, nomeCurso
 
     return true
 }
-
-console.log(calcularMedias('100', '40', '10', '20'))
 
 const relatorioExame = (sexoAluno, nota1, nota2, nota3, nota4, notaExame, situacaoExame, media, novaMedia) => {
     let proAluno = sexoAluno
