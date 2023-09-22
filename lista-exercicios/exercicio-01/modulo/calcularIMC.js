@@ -26,7 +26,7 @@ const calculoIMC = (valorPeso, valorAltura) => {
     if (peso == '' || altura == '') {
         console.log('ERRO: é obrigatório inserir todos os valores.')
     } else if (isNaN(peso) || isNaN(altura)) {
-        console.log('ERRO: é obrigatória a entrada somnte de números.')
+        console.log('ERRO: é obrigatória a entrada somente de números.')
     } else {
         // converte as variávis em números
         peso = Number(peso)
