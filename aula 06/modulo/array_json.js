@@ -75,10 +75,20 @@ const filtrarProduto = (nomeProduto) => {
     let listaProdutos = ['Mouse', 'Teclado', 'Monitor', 'Impressora', 'Mouse Pad', 'Gabinete', 'Processador', 'HD']
     let nome = nomeProduto
 
-    return listaProdutos.includes(nome)
+    let status = false
+
+    // return listaProdutos.includes(nome)
+
+    listaProdutos.forEach(function(produto){
+        if(produto.toUpperCase() == nome.toUpperCase()){
+            status = true
+        }
+    })
+
+    return status
 }
 
 console.log(filtrarProduto('Mouse'))
 
-percorrendoArray()
+// percorrendoArray()
 //introducaoArray()
