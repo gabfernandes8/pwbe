@@ -25,6 +25,25 @@ const calcularFatorial = (valorFatorado) => {
         console.log('ERRO: É impossível calcular uma fatorial de números negativos.')
     }
 
-    fatorial = 
+    fatorial = Number(fatorial)
+    let resultado = 1
+    let resp = fatorial, aux = fatorial
 
+    while (fatorial >= 1){
+        resultado *= fatorial
+
+        if(fatorial != 1){
+            resp = `${resp} x ${fatorial-1}`
+        } else {
+            resp = `${resp}`
+        }
+
+        fatorial--
+    }
+
+    console.log(aux + '! é ' + resp + ' = '  + resultado)
+}
+
+module.exports={
+    calcularFatorial
 }
