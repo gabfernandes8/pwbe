@@ -238,7 +238,24 @@ const produtosArrayJson = () => {
     // adiciona o atributo status e coloca o código 200 que é requisição bem sucedida
     JSONProdutos.status = 200
 
-    console.log(JSONProdutos)
+    return JSONProdutos
+}
+
+const exibeProdutos = (produtos) => {
+
+    const JSONProdutos = produtosArrayJson().produtos
+
+    console.log('----- LISTAGEM DE PRODUTOS -----')
+    console.log('')
+
+    produtosArrayJson.forEach(produto)
+    console.log('Nome: ' + produto.nome)
+    console.log('Descrição: ' + produto.descricao.nome)
+    console.log('Categoria: ' + produto.categoria.nome)
+    console.log('Marca: ' + produto.marca.nome)
+    console.log('Cor: ' + produto.cor)
+    console.log('')
+
 }
 
 // percorrendoArray()
