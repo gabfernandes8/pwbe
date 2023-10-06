@@ -184,9 +184,50 @@ const produtosArrayJson = () => {
         cor: listaCores
     }
 
+    let produto3 = {
+        id: 3, 
+        nome: 'Headset', 
+        descricao: 'Headset gamer com led colorido', 
+        categoria: listaCategorias[3],
+        marca: listaMarca[6],
+        cor: [
+            listaCores[0],
+            listaCores[1],
+            listaCores[2]
+        ]
+    }
+
+    let produto4 = {
+        id: 4, 
+        nome: 'Monitor', 
+        descricao: 'Monitor 20"5', 
+        categoria: listaCategorias[1],
+        marca: listaMarca[0],
+        cor: [
+            listaCores[0],
+            listaCores[1],
+        ]
+    }
+
+    let produto5 = {
+        id: 5, 
+        nome: 'Gabinete', 
+        descricao: 'Gabinete com led colorido', 
+        categoria: listaCategorias[1],
+        marca: listaMarca[0],
+        cor: [
+            listaCores[0],
+            listaCores[1],
+        ]
+    }
+    
+
     // adicionando os produtos no array de produtos
     ArrayProdutos.push(produto1)
     ArrayProdutos.push(produto2)
+    ArrayProdutos.push(produto3)
+    ArrayProdutos.push(produto4)
+    ArrayProdutos.push(produto5)
 
     // adiciona o atributo produto e coloca o array de produtos
     JSONProdutos.produtos = ArrayProdutos
