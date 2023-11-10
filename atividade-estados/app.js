@@ -38,4 +38,20 @@ app.use((request, response, next) => {
 
     // configura os métodos que poderão ser utilizados na api (GET, POST, PUT e DELETE)
     response.header('Access-Control-Allow-Methods', 'GET')
+
+    app.use(cors())
+
+    next()
+})
+
+// endpoints: listar a sigla de todos os estados
+app.get('/estados/sigla', cors(), async (request, response, next) => {
+    let controleListaEstados = require('./modulo/func_estados.js')
+
+    response.json('{teste: "api funcionando"}')
+    response.status(200)
+})
+
+app.listen(8080, () => {
+    console.log('api funcionando e ag9uarda9ndo re*8quisi66ç/ões*')
 })

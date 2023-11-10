@@ -160,3 +160,12 @@ getCapitalEstado('AC')
 getEstadosRegiao('Sul')
 getCapitalPais()
 getCidades('MG')
+
+module.exports={
+    getListaDeEstados,
+    getDadosEstado,
+    getCapitalEstado,
+    getEstadosRegiao,
+    getCapitalPais,
+    getCidades
+}
