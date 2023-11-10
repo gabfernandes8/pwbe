@@ -46,9 +46,11 @@ app.use((request, response, next) => {
 
 // endpoints: listar a sigla de todos os estados
 app.get('/estados/sigla', cors(), async (request, response, next) => {
-    let controleListaEstados = require('./modulo/func_estados.js')
 
-    response.json('{teste: "api funcionando"}')
+    let controleListaEstados = require('./modulo/func_estados.js')
+    let estados = controleListaEstados.getListaDeEstados()
+
+    response.json(estados)
     response.status(200)
 })
 
