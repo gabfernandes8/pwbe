@@ -78,7 +78,7 @@ const getEstadosRegiao = (regiao) => {
         if (estado.regiao.includes(reg)){
 
             let estadoRegiao = {
-                regiao: estado.sigla,
+                uf: estado.sigla,
                 descricao: estado.nome
             }
 
@@ -153,13 +153,6 @@ const getCidades = (siglas) => {
     return estadoCidades
 
 }
-
-getListaDeEstados()
-getDadosEstado('SP')
-getCapitalEstado('AC')
-getEstadosRegiao('Sul')
-getCapitalPais()
-getCidades('MG')
 
 module.exports={
     getListaDeEstados,
