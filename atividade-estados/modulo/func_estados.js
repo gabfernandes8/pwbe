@@ -30,6 +30,7 @@ const getDadosEstado = (siglas) => {
     let uf = siglas
 
     let dados = {}
+    let status = false
 
     // forEach
     estados.forEach(function(estado){
@@ -38,10 +39,16 @@ const getDadosEstado = (siglas) => {
             dados.descricao = estado.nome
             dados.capital = estado.capital
             dados.regiao = estado.regiao
+            status = true
         }
     })
 
-    return dados
+    if(status){
+        return dados
+    } else {
+        return false
+    }
+
 }
 
 const getCapitalEstado = (siglas) => {
